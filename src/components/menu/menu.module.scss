@@ -1,0 +1,131 @@
+.menupage {
+    min-width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    background: var(--text-color);
+    position: fixed;
+    z-index: 999;
+    transition: transform cubic-bezier(.16, .42, .33, .77) 0.6s;
+    padding-top: 50px;
+    z-index: 9999999;
+
+    &.cover {
+        transform: translateY(0);
+    }
+
+    ul {
+        max-width: 400px;
+        margin: auto;
+        height: 60vh;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        li {
+            text-align: center;
+            margin: 10px 0;
+
+            a {
+                display: block;
+                font-size: 6.5rem;
+                color: var(--bg-color) !important;
+                position: relative;
+                margin-bottom: 20px;
+                text-transform: uppercase;
+                margin: auto;
+                text-decoration: none;
+
+                &::after {
+                    content: '';
+                    color: var(--bg-color);
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    transition: 0.3s linear;
+                    height: 2px;
+                    background: currentColor;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                }
+            }
+        }
+
+
+    }
+
+    .info {
+        padding-top: 11.1rem;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 7.3rem;
+
+        .location, .email {
+            span , a{
+                font-size: 1.5rem;
+                font-weight: 300;
+                display: block;
+                cursor: pointer;
+                color: var(--bg-color) !important ;
+                text-decoration: none;
+            }
+        }
+
+
+    }
+
+    .cross {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        text-align: right;
+        cursor: pointer;
+
+        svg {
+            fill: var(--bg-color);
+            width: 7rem;
+        }
+    }
+
+}
+
+/* For small screens (e.g., mobile devices) */
+@media only screen and (max-width: 600px) {
+
+      .menupage ul li a{
+        font-size: 3.5rem;
+      }
+    .menupage .info{
+        grid-gap: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+
+        .location, .email {
+            span , a{
+                font-size: 1.4rem;
+                overflow-wrap: break-word
+            }
+        }
+      }
+      .menupage .cross{
+        right: 15%;
+      }
+      .menupage .cross svg {
+            width: 5rem;
+    }
+    .box{
+        max-width: 165px;
+    }
+  }
+  
+  /* For medium screens (e.g., tablets) */
+  @media only screen and (min-width: 601px) and (max-width: 900px) {
+    
+  }                            

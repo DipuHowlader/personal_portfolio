@@ -1,0 +1,193 @@
+#protfolio {
+  position: relative;
+  padding-bottom:10rem;
+  z-index: 999999;
+
+  .section_title {
+    margin-bottom: 48px;
+    color: var(--text-color);
+    margin: 20px 0;
+    font-weight: 600;
+    font-size: 2.6rem;
+  }
+
+  .portfolio_btn {
+    width: 20rem;
+    margin: 0;
+    border: 2px solid var(--text-color);
+    padding: 10px 35px;
+    border-radius: 25px;
+    outline: none;
+    transition: background 0.5s;
+    font-weight: 300;
+    color: var(--text-color);
+    font-size: 1.6rem;
+    z-index: 999999;
+    position: relative;
+
+    &:hover {
+      color: var(--bg-color) !important;
+      background: var(--text-color);
+    }
+  }
+}
+
+.projects {
+  .project {
+    margin-top: 0px;
+    align-items: center;
+
+    .row {
+      position: relative;
+    }
+
+    .framer {
+      padding-top: 30px;
+      border-top: 1px solid var(--gray-color);
+      margin-bottom: 50px;
+      position: sticky;
+      top: 4.5rem;
+      z-index: 9999;
+
+      h5 {
+        font-weight: 300;
+        font-size: 1.6rem;
+      }
+    }
+
+    .left {
+      position: sticky;
+      top: 27%;
+      margin-right: 7.6rem;
+      line-height: 32px;
+      margin-bottom: 13.7rem;
+      font-weight: 300;
+
+      h2.project_name {
+        font-size: 3.8rem;
+        margin-bottom: 3rem;
+      }
+
+      p.desc {
+        font-size: 1.8rem;
+      }
+    }
+
+    .right {
+      .box {
+        width: 100%;
+        height: 40rem;
+        padding: 3rem 2rem;
+        margin-bottom: 3rem;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        background-position: 50% center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        padding: 20px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: #d1d1d1;
+          z-index: -1;
+        }
+      }
+    }
+  }
+}
+@keyframes move {
+  100% {
+      transform: translate3d(0, 0, 1px) rotate(360deg);
+  }
+}
+
+
+.background{
+  width: 100vw;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+
+.background span {
+  width: 16vmin;
+  height: 16vmin;
+  border-radius: 16vmin;
+  backface-visibility: hidden;
+  position: absolute;
+  animation: move;
+  animation-duration: 50;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0.5;
+}
+
+
+.background span:nth-child(1) {
+  color: #E45A84;
+  top: 56%;
+  left: 72%;
+  animation-duration: 4s;
+  animation-delay: -1s;
+  transform-origin: 8vw 5vh;
+  background: radial-gradient(circle, rgba(238,174,202,1) 3%, rgba(111,144,184,1) 51%);
+}
+.background span:nth-child(2) {
+  color: #FFACAC;
+  top: 23%;
+  left: 41%;
+  animation-duration: 4s;
+  animation-delay: -1s;
+  transform-origin: 16vw -8vh;
+  background: radial-gradient(circle, rgba(34,193,195,1) 22%, rgba(253,187,45,1) 100%);
+}
+.background span:nth-child(3) {
+  color: #3c873c;
+  top: 54%;
+  left: 35%;
+  animation-duration: 4s;
+  border-radius: 20px;
+  animation-delay: -1s;
+  transform-origin: 1vw -5vh;
+  background: linear-gradient(90deg, rgba(165,175,227,1) 0%, rgba(159,55,76,1) 100%);
+}
+.background span:nth-child(4) {
+  color: #eeacff;
+  top: 37%;
+  left: 6%;
+  animation-duration: 4s;
+  animation-delay: -1s;
+  border-radius: 10px;
+  transform-origin: 4vw -12vh;
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(47,47,98,1) 44%, rgba(137,195,207,1) 100%);
+}
+.background span:nth-child(5) {
+  color: #583C87;
+  top: 46%;
+  left: 47%;
+  animation-duration: 4s;
+  animation-delay: -1s;
+  transform-origin: -5vw 23vh;
+  background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 44%, rgba(0,212,255,1) 100%);
+}
+
+/* For small screens (e.g., mobile devices) */
+@media only screen and (max-width: 600px) {
+
+  .projects .project{
+      margin-bottom: 30px;
+
+    }
+}
+
+/* For medium screens (e.g., tablets) */
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  
+}

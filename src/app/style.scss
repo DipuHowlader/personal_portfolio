@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@font-face {
+  font-family: "Adventurism";
+  src: url("/fonts/Adventurism/D3AdventurismW.TTF");
+}
+
+:root {
+  color-scheme: light dark;
+  --font-family: Poppins, "sans-serif";
+  --primary-color: #4b3869;
+
+  --cursor-stroke: #4b3869;
+  --cursor-fill: none;
+  --cursor-stroke-width: 1px;
+  scroll-behavior: initial !important;
+  font-size: 62.5%;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* defaults to light theme */
+  body {
+    --text-color: #222;
+    --bg-color: #fff;
+    --gray-color: #212529;
+    --shadow: rgba(0, 0, 0, 0.13);
+    --drap-shadow: #dbdbdb80;
+  }
+
+  body.dark-theme {
+    --text-color: #fff;
+    --bg-color: #121212;
+    --gray-color: #556d8f;
+    --shadow: #1f2224;
+    --drap-shadow: #302d2d80;
+  }
+}
+
+body {
+  font-family: var(--font-family);
+  overflow-x: hidden;
+  background-color: var(--bg-color) !important;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10vw;
+  border: 3px solid var(--bg-color);
+}
+
+body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  li,
+  a,
+  span,
+  label {
+    color: var(--text-color);
+    z-index: 999;
+    font-family: poppins, "sans-serif";
+    outline: none;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+.fluid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -999999; /* Make sure the fluid is behind the content */
+}
+
+.hidden {
+  visibility: hidden;
+  z-index: -9;
+}
