@@ -9,38 +9,24 @@ const Animations = () => {
     const isMobile = window.matchMedia("(max-width: 600px)").matches;
     const textTimeline = gsap.timeline();
 
-    // Circle Animations
-    const circleTimeline = gsap.timeline({});
-
-    circleTimeline.from(".c1 .c2", {
-      yPercent: 500,
-      xPercent: 100,
-      ease: "power3.inOut",
-      opacity: 0,
-      duration: 1.5,
-      stagger: 0.9
-    });
-
-    // ScrollTrigger for About Section
     gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: document.querySelector(".about"), // Trigger on the #about element
-          start: isMobile ? "top center" : "", // Adjust start position for mobile
-          end: isMobile ? "bottom center" : "", // Adjust end position for mobile
-          scrub: true,
-        },
-      })
-      .to(
-        document.querySelector(".about"),
-        {
-          ease: "none",
-          yPercent: -120,
-        },
-        "start"
-      );
+    .timeline({
+      scrollTrigger: {
+        trigger: document.querySelector(".about"), 
+        start:  isMobile ? "top bottom" : "",
+        end:  isMobile ? "bottom top" : "",
+        scrub: true,
+      },
+    })
+    .to(
+      document.querySelector(".about"),
+      {
+        ease: "none",
+        yPercent: -120,
+      },
+      "start"
+    );
 
-    // ScrollTrigger for Protfolio Section
     gsap
       .timeline({
         scrollTrigger: {
@@ -58,7 +44,24 @@ const Animations = () => {
         },
         "start"
       );
-    // }
+
+      gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: document.querySelector(".footer"), 
+          start:  isMobile ? "top bottom" : "",
+          end:  isMobile ? "bottom top" : "",
+          scrub: true,
+        },
+      })
+      .to(
+        document.querySelector(".about"),
+        {
+          ease: "none",
+          yPercent: -120,
+        },
+        "start"
+      );
 
     // Menu Animations
     const menuTimeline = gsap.timeline({});

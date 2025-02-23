@@ -4,7 +4,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <footer id={styles.footer}>
+      <footer className="footer" id={styles.footer}>
         <div className="container">
           <h2>Find me</h2>
           <Link

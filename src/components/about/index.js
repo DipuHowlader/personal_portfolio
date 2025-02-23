@@ -6,7 +6,7 @@ import skills from "./skills.json";
 const About = () => {
   return (
     <>
-      <section class={`${styles.about} about`}>
+      <section className={`${styles.about} about`}>
         <div className="container">
           <div className="row">
             <div className="col-sm-8 col-12">

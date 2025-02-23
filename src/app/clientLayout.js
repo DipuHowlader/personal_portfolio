@@ -10,21 +10,23 @@ import Animations from "@/utils/animations";
 import { ThemeProvider } from "@/utils/theme/context";
 
 const ClientLayout = ({ children }) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true); // Default to true so preloader shows
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
     const handleStart = () => setLoading(true);
     const handleComplete = () => setLoading(false);
-    handleStart();
 
-    gsap.ticker.lagSmoothing(0);
+    // Simulate loading completion with a timeout
     const timer = setTimeout(() => {
       handleComplete();
-    }, 500);
+    }, 1500); // Adjust the timeout duration as per your preference
 
-    if (window.innerWidth > 768) { 
+    gsap.ticker.lagSmoothing(0);
+    
+    // Only initialize Lenis for larger screens
+    if (window.innerWidth > 768) {
       const lenis = new Lenis();
       lenis.on("scroll", ScrollTrigger.update);
 
@@ -36,19 +38,20 @@ const ClientLayout = ({ children }) => {
         clearTimeout(timer);
         lenis.destroy();
       };
-
     }
-    
+
+    return () => {
+      clearTimeout(timer); // Clear the timer on cleanup
+    };
   }, [pathname, searchParams]);
 
   return (
     <>
       <ThemeProvider>
-      {loading && <Preloader />}
-      <FluidAnimation />
-      <Animations />
-      {children}
-
+        {loading && <Preloader />} {/* Show preloader if loading is true */}
+        <FluidAnimation />
+        <Animations />
+        {children}
       </ThemeProvider>
     </>
   );

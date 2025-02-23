@@ -93,7 +93,7 @@ export default function RootLayout({children}) {
             href="https://aesthetic-druid-a5c893.netlify.app/"
           />
         </head>
-        <body>
+        <body suppressHydrationWarning={true}>
           <ClientLayout>{children}</ClientLayout>
         </body>
       </html>

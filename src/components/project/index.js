@@ -13,6 +13,7 @@ const Project = ({item}) => {
               alt="case study" 
               width={500}
               height={256}
+              style={{ width: '100%', height: 'auto' }}
             />
 
             <div className={styles.after_hover}>
