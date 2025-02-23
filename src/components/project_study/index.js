@@ -18,8 +18,8 @@ const Protfolio = () => {
         <div className="container">
           <h5 className={styles.section_title}>Things I've built</h5>
           <div className="row">
-            {items.map((item) => (
-               <Project item={item} />
+            {items.map((item, index) => (
+               <Project key={index} item={item} />
             ))}
             <div className="row justify-content-center mt-5">
               <Link

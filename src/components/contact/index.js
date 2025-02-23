@@ -56,9 +56,9 @@ const ContactSection = () => {
 
       <div className={`${styles.form} mx-5 mx-md-auto`}>
         <div className={styles.head}>
-          <h2>Let's work together</h2>
+          <h2>Let&apos;s work together</h2>
           <p>
-            I'm here to help you achieve extraordinary results. Fill out the form below to schedule a consultation.
+            I&apos;m here to help you achieve extraordinary results. Fill out the form below to schedule a consultation.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ const ContactSection = () => {
             <div className={styles.side}>
               <span>01</span>
             </div>
-            <label htmlFor="name">What's your name?</label>
+            <label htmlFor="name">What&apos;s your name?</label>
             <input 
               onChange={handleChange} 
               name="name" 
@@ -82,7 +82,7 @@ const ContactSection = () => {
             <div className={styles.side}>
               <span>02</span>
             </div>
-            <label htmlFor="email">What's your email address?</label>
+            <label htmlFor="email">What&apos;s your email address?</label>
             <input 
               onChange={handleChange} 
               name="email" 
@@ -97,7 +97,7 @@ const ContactSection = () => {
             <div className={styles.side}>
               <span>03</span>
             </div>
-            <label htmlFor="company">What's your company/organization?</label>
+            <label htmlFor="company">What&apos;s your company/organization?</label>
             <input 
               onChange={handleChange} 
               name="company" 

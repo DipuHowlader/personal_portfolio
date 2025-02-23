@@ -13,15 +13,15 @@ const About = () => {
               <div className={`${styles.content} psMd-5 ps-0 ps-sm-0`}>
                 <h5 className={styles.section_title}>About me</h5>
                 <p>
-                  I’m a Computer Science and Engineering student from a reputed university in Bangladesh, passionate about building intelligent systems that solve real-world problems. With expertise in Deep Learning, Computer Vision, and Natural Language Processing, I help businesses unlock actionable insights from data and tackle complex challenges.
+                  I&apos;m a Computer Science and Engineering student from a reputed university in Bangladesh, passionate about building intelligent systems that solve real-world problems. With expertise in Deep Learning, Computer Vision, and Natural Language Processing, I help businesses unlock actionable insights from data and tackle complex challenges.
 
-                  When I’m not coding, you’ll find me grinding on LeetCode, competing in programming contests, or diving into Kaggle competitions to sharpen my skills. I’m also a fitness enthusiast who loves hitting the gym to stay energized and focused.
+                  When I&apos;m not coding, you&apos;ll find me grinding on LeetCode, competing in programming contests, or diving into Kaggle competitions to sharpen my skills. I&apos;m also a fitness enthusiast who loves hitting the gym to stay energized and focused.
 
-                  My journey is fueled by a relentless curiosity for learning, whether it’s mastering new algorithms, optimizing code, or exploring cutting-edge AI research. I thrive in dynamic environments where innovation meets impact, and I’m always ready to take on the next big challenge.
+                  My journey is fueled by a relentless curiosity for learning, whether it&apos;s mastering new algorithms, optimizing code, or exploring cutting-edge AI research. I thrive in dynamic environments where innovation meets impact, and I&apos;m always ready to take on the next big challenge.
                 </p>
 
                 <h3 className={styles.techo_title}>
-                  Here are few technology i've worked with
+                  Here are few technology i&apos;ve worked with
                 </h3>
                 <ul className={styles.skill_list}>
                   {skills.map((skill, index) => (

@@ -50,7 +50,7 @@ const Menu = () => {
               <span>Borhunuddin, Bhola</span>
             </div>
             <div className={`${styles.email} ${styles.box} box`}>
-              <span>I'm also available</span>
+              <span>I&apos;m also available</span>
               <Link
                 className={styles.mail}
                 href="mailto:dipuhowlader33@gmail.com"
