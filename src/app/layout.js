@@ -1,10 +1,9 @@
 import "./style.scss";
-import { Suspense } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./responsive.scss";
 import ClientLayout from "./clientLayout";
 import Preloader from "@/utils/preloader/preloader";
-
+// import { Suspense } from "react";
 
 export const metadata = {
   title: "Dipu | Portfolio",
@@ -63,14 +62,14 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <Suspense fallback={<Preloader />}>
-      <html lang="en">
-        <body>
+    <html lang="en">
+      <body>
+        {/* <Suspense fallback={<Preloader />}> */}
           <ClientLayout>
             <main>{children}</main>
           </ClientLayout>
-        </body>
-      </html>
-    </Suspense>
+        {/* </Suspense> */}
+      </body>
+    </html>
   );
 }

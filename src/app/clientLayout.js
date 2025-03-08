@@ -1,5 +1,7 @@
-"use client"
-import React, { useState, useEffect, Suspense } from "react";
+// clientlayout.js
+
+"use client";
+import React, { useState, useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Preloader from "@/utils/preloader/preloader";
 import FluidAnimation from "@/utils/fluid";
@@ -15,54 +17,58 @@ const ClientLayout = ({ children }) => {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    // Set isClient immediately on mount
-    setIsClient(true);
+    setIsClient(true); // Set isClient to true after the first render on the client
 
-    if (!isClient) return;
+    if (isClient) {
+      // Initialize GSAP and Lenis only on the client side
+      const handleStart = () => setLoading(true);
+      const handleComplete = () => setLoading(false);
 
-    const handleStart = () => setLoading(true);
-    const handleComplete = () => setLoading(false);
+      // Simulate loading with a timeout
+      const timer = setTimeout(() => {
+        handleComplete();
+      }, 1000);
 
-    // Simulate loading with a timeout
-    const timer = setTimeout(() => {
-      handleComplete();
-    }, 1000);
+      // GSAP setup
+      gsap.ticker.lagSmoothing(0);
 
-    // GSAP setup
-    gsap.ticker.lagSmoothing(0);
+      // Lenis smooth scrolling setup
+      const lenis = new Lenis({
+        lerp: 0.1, // Adjust for smoothness
+        smoothWheel: true,
+      });
 
-    // Lenis smooth scrolling setup (moved outside condition for broader use)
-    const lenis = new Lenis({
-      lerp: 0.1, // Adjust for smoothness
-      smoothWheel: true,
-    });
+      lenis.on("scroll", ScrollTrigger.update);
 
-    lenis.on("scroll", ScrollTrigger.update);
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
+      // Optional: Trigger ScrollTrigger refresh
+      ScrollTrigger.refresh();
 
-    // Optional: Trigger ScrollTrigger refresh
-    ScrollTrigger.refresh();
-
-    // Cleanup
-    return () => {
-      clearTimeout(timer);
-      lenis.destroy();
-      gsap.ticker.remove((time) => lenis.raf(time * 1000));
-    };
+      // Cleanup
+      return () => {
+        clearTimeout(timer);
+        lenis.destroy();
+        gsap.ticker.remove((time) => lenis.raf(time * 1000));
+      };
+    }
   }, [isClient, pathname, searchParams]); // Dependencies trigger re-run on navigation
 
+  // Only render the children when on the client-side and `isClient` is true
+  if (!isClient) {
+    return <Preloader />; // Show preloader during the initial load on the client side
+  }
+
   return (
-    <Suspense fallback={<Preloader />}>
+    <>
       <ThemeProvider>
-        {loading && <Preloader />} {/* Show preloader during loading */}
         <Animations />
         <FluidAnimation />
         {children}
       </ThemeProvider>
-    </Suspense>
+    </>
   );
 };
 

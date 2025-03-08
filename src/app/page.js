@@ -22,10 +22,10 @@ const HomePage = () => {
   return (
     <Suspense fallback={<Preloader />}>
       <Header />
-      <About />
-      <Protfolio />
+       <About />
+       <Protfolio />
       <Footer />
-      <Menu />
+       <Menu />
     </Suspense>
   );
 };
