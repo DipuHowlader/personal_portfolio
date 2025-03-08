@@ -7,7 +7,7 @@
 }
 
 @font-face {
-  font-family: "Popins";
+  font-family: "Poppins";
   src: url("/fonts/Poppins/Poppins-Medium.ttf");
 }
 
@@ -99,4 +99,8 @@ ul li {
 .hidden {
   visibility: hidden;
   z-index: -9;
+}
+
+h1, h2, h3, h4, h5, h6, span, p, a{
+  font-family: Poppins !important;
 }
