@@ -19,7 +19,7 @@ const Header = () => {
                 <h5 className={`${styles.section_title} t1`}>Hello There</h5>
 
                 <div className="oh__inner overflow-hidden">
-                  <h1 className="name">I'm Dipu</h1>
+                  <h1 className="name">I&apos;m Dipu</h1>
                 </div>
                 <div className="overflow-hidden">
                   <p className="p">

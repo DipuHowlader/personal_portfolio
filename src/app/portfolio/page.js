@@ -1,24 +1,26 @@
+import { Suspense } from "react"; // Import Suspense if you want to handle async rendering
 import Menu from "@/components/menu";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import Protfolio from "@/components/protfolio";
+import Portfolio from "@/components/portfolio";
+import Preloader from "@/utils/preloader/preloader";
+
 
 export const metadata = {
-  title: "Dipu | Protfolio",
+  title: "Dipu | Portfolio",
   description:
     "I am a Machine Learning Developer with a passion for building intelligent systems. I leverage my expertise in  deep learning, computer vision, natural language processing to help businesses extract insights from data and solve complex problems.",
 };
 
-
-const ProtfolioPage = () => {
+const PortfolioPage = () => {
   return (
-    <>
+      <Suspense fallback={<Preloader />}>
       <Navbar />
-      <Protfolio />
-      <Footer />
-      <Menu />
-    </>
+          <Portfolio />
+          <Footer />
+          <Menu />
+      </Suspense>
   );
 };
 
-export default ProtfolioPage;
+export default PortfolioPage;

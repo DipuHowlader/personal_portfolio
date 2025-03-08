@@ -1,19 +1,18 @@
-import styles from "./protfolio.module.scss";
+import styles from "./Portfolio.module.scss";
 import Link from "next/link";
 import data from "./data.json";
 import Image from "next/image";
 
 
-const Protfolio = () => {
-
+const Portfolio = () => {
   return (
     <>
       <section className={styles.projects}>
         <div className="container-fluid px-5">
           <div className={styles.project}>
 
-            {data.map((item) => (
-              <div className={styles.project}>
+            {data.map((item, index) => (
+              <div key={index} className={styles.project}>
                 <div className={`${styles.framer} d-none d-md-flex justify-content-between`}>
                   <h5>{item.year}</h5>
                   <h5>{item.ML_Model}</h5>
@@ -50,4 +49,4 @@ const Protfolio = () => {
   );
 };
 
-export default Protfolio;
+export default Portfolio;

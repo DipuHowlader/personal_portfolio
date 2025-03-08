@@ -1,6 +1,5 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+"use client"
+import React, { useState, useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Preloader from "@/utils/preloader/preloader";
 import FluidAnimation from "@/utils/fluid";
@@ -10,50 +9,60 @@ import Animations from "@/utils/animations";
 import { ThemeProvider } from "@/utils/theme/context";
 
 const ClientLayout = ({ children }) => {
-  const [loading, setLoading] = useState(true); // Default to true so preloader shows
+  const [loading, setLoading] = useState(true);
+  const [isClient, setIsClient] = useState(false);
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    // Set isClient immediately on mount
+    setIsClient(true);
+
+    if (!isClient) return;
+
     const handleStart = () => setLoading(true);
     const handleComplete = () => setLoading(false);
 
-    // Simulate loading completion with a timeout
+    // Simulate loading with a timeout
     const timer = setTimeout(() => {
       handleComplete();
-    }, 1500); // Adjust the timeout duration as per your preference
+    }, 1000);
 
+    // GSAP setup
     gsap.ticker.lagSmoothing(0);
-    
-    // Only initialize Lenis for larger screens
-    if (window.innerWidth > 768) {
-      const lenis = new Lenis();
-      lenis.on("scroll", ScrollTrigger.update);
 
-      gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-      });
+    // Lenis smooth scrolling setup (moved outside condition for broader use)
+    const lenis = new Lenis({
+      lerp: 0.1, // Adjust for smoothness
+      smoothWheel: true,
+    });
 
-      return () => {
-        clearTimeout(timer);
-        lenis.destroy();
-      };
-    }
+    lenis.on("scroll", ScrollTrigger.update);
 
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    // Optional: Trigger ScrollTrigger refresh
+    ScrollTrigger.refresh();
+
+    // Cleanup
     return () => {
-      clearTimeout(timer); // Clear the timer on cleanup
+      clearTimeout(timer);
+      lenis.destroy();
+      gsap.ticker.remove((time) => lenis.raf(time * 1000));
     };
-  }, [pathname, searchParams]);
+  }, [isClient, pathname, searchParams]); // Dependencies trigger re-run on navigation
 
   return (
-    <>
+    <Suspense fallback={<Preloader />}>
       <ThemeProvider>
-        {loading && <Preloader />} {/* Show preloader if loading is true */}
-        <FluidAnimation />
+        {loading && <Preloader />} {/* Show preloader during loading */}
         <Animations />
+        <FluidAnimation />
         {children}
       </ThemeProvider>
-    </>
+    </Suspense>
   );
 };
 

@@ -6,10 +6,11 @@
     left: 0;
     background: var(--text-color);
     position: fixed;
-    z-index: 999;
+    z-index: 99999999;
     transition: transform cubic-bezier(.16, .42, .33, .77) 0.6s;
     padding-top: 50px;
     z-index: 9999999;
+    overflow: hidden;
 
     &.cover {
         transform: translateY(0);

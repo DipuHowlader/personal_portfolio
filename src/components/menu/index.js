@@ -37,7 +37,7 @@ const Menu = () => {
         <div className="d-flex justify-content-center align-items-center flex-column">
           <ul>
             <li>
-              <Link href="/protfolio">Portfolio</Link>
+              <Link href="/portfolio">Portfolio</Link>
             </li>
             <li>
               <Link href="/contact">Contact</Link>
