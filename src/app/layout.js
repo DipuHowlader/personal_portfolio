@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./responsive.scss";
 import ClientLayout from "./clientLayout";
 import Preloader from "@/utils/preloader/preloader";
-// import { Suspense } from "react";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "Dipu | Portfolio",
@@ -62,14 +62,14 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
-        {/* <Suspense fallback={<Preloader />}> */}
+    <Suspense fallback={<Preloader />}>
+      <html lang="en">
+        <body>
           <ClientLayout>
             <main>{children}</main>
           </ClientLayout>
-        {/* </Suspense> */}
-      </body>
-    </html>
+        </body>
+      </html>
+    </Suspense>
   );
 }
