@@ -46,11 +46,17 @@ const Navbar = () => {
       });
   };
 
+  const handleLinkClick = (event) => {
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute("href");
+      window.location.href = href;
+  };
+
   return (
     <>
       <div id={styles.navbar}>
         <nav className="navbar">
-          <Link className={styles.navbar_brand} href="/">
+          <Link className={styles.navbar_brand} href="/" onClick={handleLinkClick}>
             Dipu
           </Link>
 

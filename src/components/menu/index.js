@@ -19,6 +19,12 @@ const Menu = () => {
     });
   };
 
+  const handleLinkClick = (event) => {
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute("href");
+      window.location.href = href;
+  };
+
   return (
     <>
       <div className={`${styles.menupage} menupage d-none`}>
@@ -37,10 +43,10 @@ const Menu = () => {
         <div className="d-flex justify-content-center align-items-center flex-column">
           <ul>
             <li>
-              <Link href="/portfolio">Portfolio</Link>
+              <Link href="/portfolio" onClick={handleLinkClick}>Portfolio</Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link href="/contact" onClick={handleLinkClick}>Contact</Link>
             </li>
           </ul>
 

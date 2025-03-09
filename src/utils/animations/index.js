@@ -10,16 +10,12 @@ const Animations = () => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // Set isMounted to true after the component mounts (client-side only)
     setIsMounted(true);
     gsap.registerPlugin(ScrollTrigger);
-
-
-    if (!isMounted) return; // Exit if not mounted
+    if (!isMounted) return;
 
     const isMobile = window.matchMedia("(max-width: 600px)").matches;
 
-    // Helper function to safely animate elements
     const animateElement = (selector, yPercentValue) => {
       const element = document.querySelector(selector);
       if (element) {
@@ -42,7 +38,6 @@ const Animations = () => {
     animateElement(".protfolio", -120);
     animateElement(".footer", -120);
 
-    // Menu Animations
     const menuTimeline = gsap.timeline({});
 
     const menuButton = document.querySelector(".menu");
@@ -68,15 +63,13 @@ const Animations = () => {
       crossButton.addEventListener("click", handleCrossClick);
     }
 
-    // Clean up function
     return () => {
       if (menuButton) menuButton.removeEventListener("click", handleMenuClick);
       if (crossButton) crossButton.removeEventListener("click", handleCrossClick);
     };
 
-  }, [isMounted]); // Add isMounted as a dependency
+  }, [isMounted]); 
 
-  // Return null during SSR to avoid hydration mismatch
   if (!isMounted) return null;
 
   return null;
