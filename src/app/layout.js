@@ -65,9 +65,9 @@ export default function RootLayout({ children }) {
     <Suspense fallback={<Preloader />}>
       <html lang="en">
         <body>
-          <ClientLayout>
-            <main>{children}</main>
-          </ClientLayout>
+            <ClientLayout>
+              <main>{children}</main>
+            </ClientLayout>
         </body>
       </html>
     </Suspense>

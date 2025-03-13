@@ -8,6 +8,7 @@ import Lenis from "@studio-freight/lenis";
 import { gsap, ScrollTrigger } from "gsap/all";
 import Animations from "@/utils/animations";
 import { ThemeProvider } from "@/utils/theme/context";
+import { ReactLenis } from 'lenis/react';
 
 const ClientLayout = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -34,7 +35,6 @@ const ClientLayout = ({ children }) => {
         smoothWheel: true,
       });
 
-      lenis.on("scroll", ScrollTrigger.update);
 
       gsap.ticker.add((time) => {
         lenis.raf(time * 1000);
@@ -44,8 +44,6 @@ const ClientLayout = ({ children }) => {
 
       return () => {
         clearTimeout(timer);
-        lenis.destroy();
-        gsap.ticker.remove((time) => lenis.raf(time * 1000));
       };
     }
   }, [isClient, pathname, searchParams]); 
@@ -59,7 +57,10 @@ const ClientLayout = ({ children }) => {
       <ThemeProvider>
         <Animations />
         <FluidAnimation />
+        <ReactLenis root>
         {children}
+        
+        </ReactLenis>
       </ThemeProvider>
     </>
   );

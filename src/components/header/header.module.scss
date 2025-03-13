@@ -103,10 +103,10 @@ header.main {
       font-weight: 700;
       margin-bottom: 25px;
       line-height: 70px;
-      opacity: 0; /* Start fully transparent */
-      transform: translateY(-20px); /* Start 20px above the original position */
+      opacity: 0; 
+      transform: translateY(-20px); 
       animation: fadeInDown 1s ease-out forwards;
-      animation-delay: 1.1s; /* Delays until .t1 completes */
+      animation-delay: 1.1s; 
     }
 
     p {
@@ -126,7 +126,7 @@ header.main {
         animation-delay: 1.2s; /* Delays until .name completes */
       }
 
-      /* For staggered effect on .p span elements */
+
       span:nth-child(1) {
         animation-delay: 1.3s;
       }
@@ -151,6 +151,13 @@ header.main {
       z-index: 999999;
       position: relative;
       text-decoration: none;
+      opacity: 0; /* Start fully transparent */
+        transform: translateY(
+          -20px
+        ); 
+        display: inline-block;
+      animation: fadeInDown 1s ease-out forwards;
+      animation-delay: 2s;
 
       &:hover {
         color: var(--bg-color);

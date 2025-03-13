@@ -1,8 +1,20 @@
+"use client"
+
 import styles from "./header.module.scss";
 import Navbar from "../navbar";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useState } from "react";
+import Preloader from "@/utils/preloader/preloader";
 
 const Header = () => {
+  const router = useRouter();
+  const [isNavigating, setIsNavigating] = useState(false);
+
+  const handleNavigation = (href) => {
+    setIsNavigating(true);
+    router.push(href); 
+  };
   return (
     <>
       <div className={`${styles.circle} ${styles.circle_1} c1`}></div>
@@ -30,9 +42,12 @@ const Header = () => {
                 </div>
 
                 <div className="d-block mt-3">
-                  <Link href="/protfolio" className={styles.btn}>
+                  <Link href="/portfolio" className={styles.btn} onClick={() => handleNavigation("/portfolio")}>
                     View work
                   </Link>
+                  {isNavigating && (
+                    <Preloader />
+                  )}
                 </div>
                 <div className={styles.outter}>
                   <div className={styles.scroll}></div>
