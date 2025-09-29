@@ -1,0 +1,50 @@
+[
+    {
+      "skill": "Strapi"
+    },
+    {
+      "skill": "MY SQL"
+    },
+    {
+        "skill": "MATLAB"
+    },
+    {
+        "skill": "git"
+    },
+    {
+        "skill": "react"
+    },
+    {
+        "skill": "Next.js"
+    },
+    {
+        "skill": "C++"
+    },
+    {
+        "skill": "python"
+    },
+    {
+        "skill": "FastAPI"
+    },
+    {
+        "skill": "Node.js"
+    },
+    {
+        "skill": "TensorFlow"
+    },
+    {
+        "skill": "Firebase"
+    },
+    {
+        "skill": "PyTorch"
+    },
+    {
+        "skill": "OpenCV"
+    },
+    {
+        "skill": "AWS"
+    },
+    {
+        "skill": "Google cloud"
+    }
+  ]

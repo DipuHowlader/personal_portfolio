@@ -1,0 +1,11 @@
+[
+    {
+      "name": "Sentiment analyzer",
+      "description": "This Django-based app analyzes text to classify it as Positive, Negative, or Neutral using a pre-trained machine learning model. Users can input customer feedback or any text to receive real-time sentiment results. It's user-friendly, fast, and ideal for businesses, researchers, or anyone analyzing text tone.",
+      "image": "/images/projects/case_study_1.jpg",
+      "github" : "https://github.com/DipuHowlader/sentiment_analyzer",
+      "host" : "https://dipu.pythonanywhere.com/"
+    }
+    
+  ]
+  

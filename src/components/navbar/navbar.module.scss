@@ -1,0 +1,223 @@
+.section_nav {
+  display: none;
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--bg-color);
+  z-index: 999;
+
+  img {
+    width: 50px;
+    display: block;
+    margin: 80px 0 80px auto;
+    cursor: pointer;
+  }
+
+  ul.nav_items {
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 5rem;
+      font-weight: 500;
+      margin-bottom: 15px;
+      display: block;
+    }
+  }
+
+  .block {
+    margin: 0 auto 50px auto;
+
+    h5 {
+      font-size: 1.5rem;
+      color: var(--text-color);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    p,
+    a {
+      margin: 10px 0;
+      font-weight: 400;
+      font-size: 2rem;
+      color: #444444;
+      text-decoration: none;
+      display: block;
+    }
+  }
+}
+
+#navbar {
+  overflow: hidden;
+
+  nav {
+    flex-wrap: nowrap;
+    background: transparent;
+    padding: 20px 60px;
+
+    .navbar_brand {
+      font-size: 4rem;
+      font-family: Adventurism !important;
+      text-transform: uppercase;
+      color: var(--text-color);
+      font-weight: 500;
+      text-decoration: none;
+      z-index: 999;
+    }
+  }
+
+  .right {
+    min-width: 75px;
+    position: relative;
+    z-index: 999;
+
+    .theme {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin-right: 32px;
+    }
+
+    .theme_btn {
+      position: absolute;
+      z-index: 99999;
+      padding: 10px;
+
+      svg {
+        fill: var(--text-color);
+      }
+    }
+  }
+  .hidden {
+    visibility: hidden;
+    z-index: -9;
+  }
+
+  .menu {
+    cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+    z-index: 999999;
+
+    .line {
+      width: 25px;
+      height: 2px;
+      background-color: var(--text-color);
+      margin-bottom: 6px;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:nth-child(1) {
+        width: 14px;
+      }
+
+      &:nth-child(3) {
+        width: 14px;
+        margin-left: auto;
+      }
+    }
+
+    &:hover {
+      transform: translate3d(5px, 0px, 0px);
+
+      .line:nth-child(1) {
+        transform: translate3d(0, 8px, 0);
+      }
+
+      .line:nth-child(3) {
+        transform: translate3d(0, -8px, 0);
+      }
+    }
+  }
+}
+
+/* For small screens (e.g., mobile devices) */
+@media only screen and (max-width: 600px) {
+  #navbar nav {
+    padding: 20px 15px;
+  }
+  .theme {
+    margin-right: 20px !important;
+  }
+  #navbar nav .navbar_brand {
+        font-size: 3rem;
+  }
+}
+
+/* For medium screens (e.g., tablets) */
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+}
+
+/* For large screens (e.g., desktop monitors) */
+@media only screen and (min-width: 901px) {
+}
+
+/* Base styles for theme buttons */
+.theme_btn {
+  // transition: all 0.5s ease; /* Smooth transitions for all properties */
+  opacity: 1; /* Initial opacity */
+}
+
+/* Light theme button styles */
+.theme_btn.light {
+  /* ... your light theme button styles ... */
+}
+
+/* Dark theme button styles */
+.theme_btn.dark {
+  /* ... your dark theme button styles ... */
+}
+
+/* Hidden state for theme buttons */
+.theme_btn.hidden {
+  opacity: 0; /* Hide the button */
+  pointer-events: none; /* Disable interaction */
+}
+
+/* Animation for light theme button when switching to dark */
+.theme_btn.light.dark-theme {
+  transform: translateY(60%) rotate(-111deg); /* Move up and rotate left */
+}
+
+/* Animation for dark theme button when switching to light */
+.theme_btn.dark.light-theme {
+  transform: translateY(60%) rotate(45deg); /* Move up and rotate right */
+}
+
+/* Animation for light theme button when switching to dark */
+.theme_btn.light.dark-theme {
+  opacity: 0; /* Fade out */
+}
+
+/* Animation for dark theme button when switching to light */
+.theme_btn.dark.light-theme {
+  opacity: 0; /* Fade out */
+}
+
+/* Animation for dark theme button when switching to dark */
+.theme_btn.dark.dark-theme {
+  transform: translateY(0) rotate(111deg); /* Move down and rotate left */
+}
+
+/* Animation for light theme button when switching to light */
+.theme_btn.light.light-theme {
+  transform: translateY(0) rotate(45deg); /* Move down and rotate right */
+}
+
+/* Animation for dark theme button when switching to dark */
+.theme_btn.dark.dark-theme {
+  opacity: 1; /* Fade in */
+}
+
+/* Animation for light theme button when switching to light */
+.theme_btn.light.light-theme {
+  opacity: 1; /* Fade in */
+}
