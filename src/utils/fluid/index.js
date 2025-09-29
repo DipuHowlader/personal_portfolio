@@ -180,8 +180,6 @@ const FluidAnimation = () => {
       const rootStyle = getComputedStyle(document.documentElement);
       let color = theme === 'dark' ? '#fff' : '#111';
 
-      console.log(color);
-      console.log(theme);
 
       if (ctxRef.current) ctxRef.current.strokeStyle = color;
       if (offscreenCtxRef.current) offscreenCtxRef.current.strokeStyle = color;
